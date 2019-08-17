@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: mealbot_production
-  username: mealbot
-  password: <%= ENV['MEALBOT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: mealbot_production
+  # username: mealbot
+  # password: <%= ENV['MEALBOT_DATABASE_PASSWORD'] %>
