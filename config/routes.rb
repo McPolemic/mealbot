@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :meals
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'meals#current_week'
+
+  resources :meals do
+    get :current_week, on: :collection
+  end
 end

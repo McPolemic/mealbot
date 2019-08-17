@@ -4,7 +4,21 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all
+    start = params[:start_date]
+    finish = params[:finish_date]
+
+    if start && finish
+      @meals = Meal.meals_between(start, finish)
+    else
+      @meals = Meal.all
+    end
+  end
+
+  def current_week
+    start = Date.current.beginning_of_week(:sunday)
+    finish = Date.current.end_of_week(:sunday)
+
+    redirect_to meals_path(start_date: start, finish_date: finish)
   end
 
   # GET /meals/1
