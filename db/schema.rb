@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_045750) do
+ActiveRecord::Schema.define(version: 2019_09_02_015241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "meals", force: :cascade do |t|
+  create_table "days", force: :cascade do |t|
     t.date "date"
     t.text "breakfast"
     t.text "lunch"

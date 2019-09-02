@@ -1,10 +1,10 @@
-<%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
+<%= form_with(model: day, local: true) do |form| %>
+  <% if day.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
 
       <ul>
-        <% meal.errors.full_messages.each do |message| %>
+        <% day.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

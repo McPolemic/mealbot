@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'meals#current_week'
+  root to: 'days#current_week'
 
-  resources :meals do
+  resources :days do
     get :current_week, on: :collection
   end
 end
