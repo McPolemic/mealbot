@@ -8,9 +8,9 @@ class DaysController < ApplicationController
     finish = params[:finish_date]
 
     if start && finish
-      @days = Day.days_between(start, finish)
+      @days = Day.order(:date).days_between(start, finish)
     else
-      @days = Day.all
+      @days = Day.order(:date).all
     end
   end
 
