@@ -20,7 +20,6 @@ jobs:
       postgres:
         image: postgres:11
         env:
-          POSTGRES_USER: myapp
           POSTGRES_DB: mealbot_test
           POSTGRES_PASSWORD: ""
         ports: ["5432:5432"]
@@ -44,13 +43,10 @@ jobs:
     - name: Install dependencies
       run: bundle install
 
-    - name: Setup test database
+    - name: Setup test database and run tests
       env:
+        DATABASE_URL: postgres://postgres:@localhost:5432/test
         RAILS_ENV: test
-        PGHOST: localhost
-        PGUSER: myapp
       run: |
         bin/rails db:setup
-
-    - name: Run tests
-      run: bundle exec rails test
+        bundle exec rails test
